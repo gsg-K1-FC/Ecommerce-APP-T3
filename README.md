@@ -11,9 +11,12 @@
  - creat repo in github,and make issues 
  - in treminal 
  ..
- 1. cd
- 2. cd desktop
- 3. git clone https://github.com/gsg-K1-FC/Ecommerce-APP-T3.git
+ 1. clone the repo
+ 2. in terminal 
+ - git clone https://github.com/gsg-K1-FC/Ecommerce-APP-T3.git
+ - cd Ecommerce-APP-T3
+ - code .
+ 
 ..
 - in VS code :
 1. new HTML file --> index.html
@@ -21,7 +24,9 @@
 3. new javascript file --> script.js
 - then write a code
 
-## user journey 
+## GitHub pages
+
+## user Story
 ### Customer
 1) I want to see all of the items available on the store
 2) I want to able to search for item on the store by the name
@@ -41,7 +46,7 @@
 6) I want to be able to edit all the information of my product
 
 ## Team members :
-- [iman Ghyadah](https://github.com/i98275?tab=overview&from=2020-10-01&to=2020-10-31)
+- [Iman Ghyadah](https://github.com/i98275?tab=overview&from=2020-10-01&to=2020-10-31)
 - [Tala Alsweiti](https://github.com/talaalsweiti)
 - [Sondos Zaro](https://github.com/sondos-zaro)
 - [Waed Hamza](https://github.com/waed-hamza)
