@@ -1,4 +1,4 @@
-# Ecommerce - team3
+# Ecommerce T3
 
 ## Why, What 
 ### why 
