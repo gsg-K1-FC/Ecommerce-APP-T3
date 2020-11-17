@@ -22,7 +22,7 @@
  - code .
  ```
  
-1. in VS code :
+2. in VS code :
  **Go Live**
  
 ## GitHub pages
