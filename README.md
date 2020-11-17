@@ -12,18 +12,17 @@
 - [figma design](https://www.figma.com/file/6WcCzHHq7kxuXmiEByPgLc/E--commerce-Team-3?node-id=0%3A1) 
 
  ## How 
- - creat repo in github,and make issues 
- - in treminal 
+ - Clone the repo 
+ 1. In treminal 
+ 
  
  ```
- 1. clone the repo
- 2. in terminal 
  - git clone https://github.com/gsg-K1-FC/Ecommerce-APP-T3.git
  - cd Ecommerce-APP-T3
  - code .
  ```
  
-- in VS code :
+1. in VS code :
  **Go Live**
  
 ## GitHub pages
