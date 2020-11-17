@@ -7,26 +7,31 @@
 
 ### What 
 - This project provides services to purchase goods and controls the basket if they want to keep or delete the goods. As for the store owner, he can add new goods and delete any goods that are not returned or modified.
+
+## Design 
+- [figma design](https://www.figma.com/file/6WcCzHHq7kxuXmiEByPgLc/E--commerce-Team-3?node-id=0%3A1) 
+
  ## How 
  - creat repo in github,and make issues 
  - in treminal 
- ..
+ 
+ ```
  1. clone the repo
  2. in terminal 
  - git clone https://github.com/gsg-K1-FC/Ecommerce-APP-T3.git
  - cd Ecommerce-APP-T3
  - code .
+ ```
  
-..
 - in VS code :
-1. new HTML file --> index.html
-2. new CSS file --> style.css
-3. new javascript file --> script.js
-- then write a code
-
+ **Go Live**
+ 
 ## GitHub pages
+//Link of our project
 
-## user Story
+## User Story
+
+
 ### Customer
 1) I want to see all of the items available on the store
 2) I want to able to search for item on the store by the name
