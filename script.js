@@ -17,6 +17,8 @@ carts = [{id: 0,
   //container div for all items
 let allProducts = document.getElementsByClassName("allProducts")[0];
 
+let totalPrice = 0;
+
 showCarts();
 function showCarts() {
   carts.forEach(cartItem => {
@@ -60,10 +62,19 @@ productDiv.appendChild(productName);
     deleteButton.className = "deleteButton";
     priceAndDeleteContainer.appendChild(deleteButton);
 
+    totalPrice+=cartItem.productPrice;
 
     allProducts.appendChild(productDiv);
   });
 
 }
+
+//store the total price in a span and give a class name 
+let total = document.createElement("span");
+total.textContent = totalPrice ;
+total.className = "totalPrice";
+
+
+
 
 
