@@ -6,8 +6,10 @@
 }
 
 .drop-down-form {
-    background-color: #F4E1E9;
-    margin-left: 4%;
+    display: none;
+    background-color: #f5dbe6;
+    ;
+    margin-left: 2%;
     width: 30%;
     height: 435px;
 }
@@ -38,11 +40,6 @@
     justify-content: space-around;
 }
 
-.seller-btn {
-    display: flex;
-    justify-content: space-around;
-}
-
 .product {
     display: flex;
     flex-direction: column;
@@ -62,7 +59,28 @@
     padding: 10px;
 }
 
-.data {
+.data,
+.seller-btn {
     display: flex;
     justify-content: space-around;
+}
+
+.delete-btn,
+.edit-btn,
+#add,
+#submit-form {
+    border: solid 1px #f5dbe6;
+    background-color: #f5dbe6;
+    outline: none;
+    border-radius: 35px;
+    width: 40%;
+}
+
+#submit-form {
+    background-color: #5e6075;
+}
+
+#add {
+    width: 16%;
+    margin-bottom: 4px;
 }

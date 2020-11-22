@@ -19,20 +19,25 @@
             <h1 class="form-title">Add Product</h1>
             <div class="form-item">
                 <label class="label-form" for="name">Product Name :</label>
-                <input class="input-form" id="input-name" type="text" placeholder="Enter Product Name" name="name"></div>
+                <input required class="input-form" id="input-name" type="text" placeholder="Enter Product Name" name="name"></div>
             <div class="form-item">
                 <label class="label-form" for="detail">details :</label>
-                <input class="input-form" id="input-detail" type="text" placeholder="Enter Product details" name="detail"></div>
+                <input required class="input-form" id="input-detail" type="text" placeholder="Enter Product details" name="detail"></div>
             <div class="form-item">
                 <label class="label-form" for="price"> price:</label>
-                <input class="input-form" id="input-price" type="text" placeholder="Enter Product Price" name="price"></div>
+                <input required class="input-form" id="input-price" type="text" placeholder="Enter Product Price" name="price"></div>
             <div class="form-item">
                 <label class="label-form" for="image">Product image:</label>
-                <input class="input-form" id="input-image" type="text" placeholder="Enter Product image" name="image"></div>
+                <input required class="input-form" id="input-image" type="text" placeholder="Enter Product image" name="image"></div>
             <div class="form-item">
                 <label class="label-form" for="category">Product Category :</label>
-                <input class="input-form" id="input-category" type="text" placeholder="Enter Product category" name="category">
-            </div>
+                <select class="input-form" id="input-category">
+                    <option value="man">Man</option>
+                    <option value="women">Women</option>
+                    <option value="children">Children</option>
+                    <option value="bags">Bags</option>
+                    <option value="dresses">Dresses</option>
+                    <option value="shoes">shoes</option></div> 
             <input id="submit-form" value="submit" type="submit">
         </form>
     </div>
