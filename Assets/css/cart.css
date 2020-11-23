@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .allProducts{
+    display: flex;
+    justify-content: space-around;
+    /* border: 1px solid black; */
+    width:90%;
+    margin: 5%;
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  .product {
+    
+display: flex;
+flex-direction: column;
+width: 20%;
+border: 1px solid black;
+padding: 10px;
+height: 30%;
+margin: 5%;
+
+  }
+.cardImg {
+ padding: 10px;
+ height: 10%;
+}
+
+.productName {
+text-align: center;
+padding: 10px;
+font-size: 20px;
+
+}
+  .priceAndDelete {
+    display: flex;
+    justify-content: space-between;
+   
+  }
+
+.productPrice{
+  
+padding-top: 15px;
+color: #5F5284;
+font-size:30px;
+}
+
+.deleteButton{
+
+ 
+
+  background-color: white;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 150%;
+  display: flex;
+
+  text-align: center;
+  letter-spacing: 0.0075em;
+  color: #5F5284;
+padding: 2%;
+ border: 1px solid  #5F5284;;
+  
+}
+
+.productCategory{
+font-weight: 20px;
+}
+
+.totalPrice{
+  display: flex;
+  position: absolute;
+  width: 5%;
+  border: 1px solid black;
+  padding: 10px;
+  height: 5%;
+  margin-top: 55%;
+  margin-right: 70%;
+margin-bottom: 2%;
+}
