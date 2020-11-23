@@ -6,7 +6,6 @@
   .allProducts{
     display: flex;
     justify-content: space-around;
-    /* border: 1px solid black; */
     width:90%;
     margin: 5%;
     font-family: 'Quicksand', sans-serif;
