@@ -3,7 +3,7 @@ let storedCarts = JSON.parse(localStorage.getItem("carts"));
 let intialCarts = [{
     id: 0,
     productName: "t-shirt",
-    productDetails: "bla bla",
+    productDetails: "",
     productPrice: 30,
     productImg: "https://images.unsplash.com/photo-1605723802236-aef70d35a2ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80",
 
@@ -12,7 +12,7 @@ let intialCarts = [{
     , {
         id: 5,
     productName: "shirt",
-    productDetails: "bla bla",
+    productDetails: "",
     productPrice: 40,
     productImg: "https://images.unsplash.com/photo-1605723802236-aef70d35a2ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80",
     productCategory: "clothes"
@@ -80,15 +80,13 @@ function showCarts() {
 
         //delete items
         deleteButton.addEventListener("click", function () {
-          console.log(i);
+      
             let confirmationResults = confirm(
                 "Are you sure you want to delete this product?"
             );
             if (confirmationResults) {
     
                 carts.splice(i, 1);
-                console.log(carts);
-               
                 showCarts();
                 
             }
