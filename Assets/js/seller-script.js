@@ -109,6 +109,7 @@ function showProduct() {
                 productContainer.appendChild(editDiv);
                 openEditProduct = true;
             }
+
             submitEdit.addEventListener('click', function() {
 
                 product.productName = nameInput.value;
@@ -143,4 +144,10 @@ submitForm.addEventListener('submit', function(event) {
     popUpForm.style.display = "none";
     localStorage.setItem("productForm", JSON.stringify(products));
     showProduct();
+    openForm = false;
+    name.value = "";
+    detail.value = "";
+    price.value = "";
+    image.value = "";
+
 });
