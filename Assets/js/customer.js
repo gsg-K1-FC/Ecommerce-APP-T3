@@ -27,7 +27,10 @@ showCarts();
 function showCarts(){
 
     productsContainer.innerHTML = "";
-    productsContainer.style.removeProperty('flex-direction');
+    if(document.getElementsByClassName("filter-radio")[0].checked && document.getElementsByClassName("filter-radio")[1].checked){
+        productsContainer.style.removeProperty('flex-direction');
+    }
+    
 
     // Structure:
     //products-container
@@ -191,3 +194,36 @@ for(let i=0; i<3; i++){
         }
     });
 }
+
+
+// Filters
+document.getElementsByClassName("filter--div")[0].addEventListener('click', function(){
+    // First Filter: Low->High
+    if(document.getElementsByClassName("filter-radio")[0].checked){
+        console.log(document.getElementsByClassName("filter-radio")[0].value);
+        function compare(a, b){
+            if(a.productPrice > b.productPrice){
+                return 1;
+            } else if(a.productPrice < b.productPrice){
+                return -1;
+            }
+        }
+        carts.sort(compare);
+        console.log(carts);
+        showCarts();
+    }
+    // Second Filter: High->Low
+    else if(document.getElementsByClassName("filter-radio")[1].checked){
+        console.log(document.getElementsByClassName("filter-radio")[1].value);
+        function compare(a, b){
+            if(a.productPrice > b.productPrice){
+                return -1;
+            } else if(a.productPrice < b.productPrice){
+                return 1;
+            }
+        }
+        carts.sort(compare);
+        console.log(carts);
+        showCarts();
+    }
+});
