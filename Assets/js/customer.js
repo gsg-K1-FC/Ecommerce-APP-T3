@@ -17,14 +17,12 @@ let initialProducts = [{
     productCategory: "phones"
 }];
 
-// let carts = initialProducts;
  let carts = storedCarts ? storedCarts : initialProducts;
 
 // Products Container
 let productsContainer = document.getElementsByClassName("products-container")[0];
 
 showCarts();
-
 
 function showCarts(){
 
@@ -83,7 +81,6 @@ function showCarts(){
         let product_name_span = document.createElement('span');
         product_name_span.className = "product-content-span";
         let product_name__span = cartItem.productName;
-        // product_category_span.innerText = "";
         let product_name_span_text = document.createTextNode(product_name__span);
         product_name_span.appendChild(product_name_span_text);
         product_name_div.appendChild(product_name_span);
@@ -115,7 +112,7 @@ function showCarts(){
         product_content_div.appendChild(add_button);
 
         let add_button_a = document.createElement('a');
-        add_button_a.className = "header-btns-a";
+        add_button_a.setAttribute('class', 'header-btns-a add-btn');
         add_button.appendChild(add_button_a);
 
         let add_button_a_div = document.createElement('div');
@@ -133,7 +130,6 @@ function showCarts(){
         product___div.appendChild(product_category_div);
 
         let product_category_span = document.createElement('span');
-        // product_category_span.className = "product-category-span";
         let product_category__span = cartItem.productCategory;
         product_category_span.innerText = "Category: ";
         let product_category_span_text = document.createTextNode(product_category__span);
@@ -144,4 +140,25 @@ function showCarts(){
 
     // Local Storage
     localStorage.setItem("carts", JSON.stringify(carts));
+}
+
+
+addedCart();
+
+// When Add Button Pressed, create array of objects and save it on local storage
+var addedCarts = [];
+function addedCart()
+{
+    carts.map(function(cartItem, i){
+        document.getElementsByClassName("add-btn")[i].addEventListener('click', function(){
+            // Check If cart already added
+            if(!(addedCarts.includes(cartItem)))
+            {
+                addedCarts.push(cartItem);
+            }
+
+            // local Storage
+            localStorage.setItem("addedCarts", JSON.stringify(addedCarts));
+        });
+    });
 }
