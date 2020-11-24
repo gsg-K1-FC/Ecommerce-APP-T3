@@ -17,7 +17,7 @@ let initialProducts = [{
     productCategory: "phones"
 }];
 
- let carts = storedCarts ? storedCarts : initialProducts;
+ let carts = storedCarts ? storedCarts : [];
 
 // Products Container
 let productsContainer = document.getElementsByClassName("products-container")[0];
@@ -27,29 +27,8 @@ showCarts();
 function showCarts(){
 
     productsContainer.innerHTML = "";
-    if(document.getElementsByClassName("filter-radio")[0].checked && document.getElementsByClassName("filter-radio")[1].checked){
-        productsContainer.style.removeProperty('flex-direction');
-    }
     
-
-    // Structure:
-    //products-container
-    //               |> product-div
-    //                           |> product--div
-    //                                        |> product---div
-    //                   Image Container                    |> product-img-div
-    //                                                      |               |> product-img
-     //                       category Div                  |> product-category-div
-    //                                                      |                    |> product-content-span
-    //                   Content Container                  |> product-content-div
-    //                                             Price Div                    |> product-content--div
-    //                                                                          |                    |> product-content-span
-    //                                             Add Button Div               |> header-btns--div
-    //                                                                                           |> header-btns-a
-    //                                                                                                         |> header-btns-a-div
-    //                                                                                                                            |> span
-
-    carts.map(function(cartItem, i){
+    initialProducts.map(function(cartItem, i){
 
         let product_div = document.createElement('div');
         product_div.className = "product-div";
@@ -139,31 +118,23 @@ function showCarts(){
         let product_category_span_text = document.createTextNode(product_category__span);
         product_category_span.appendChild(product_category_span_text);
         product_category_div.appendChild(product_category_span);
-    });
-    
 
-    // Local Storage
-    localStorage.setItem("carts", JSON.stringify(carts));
+        addedCart(cartItem, i);
+    });
 }
 
-
-addedCart();
-
-// When Add Button Pressed, create array of objects and save it on local storage
-var addedCarts = [];
-function addedCart()
+// When Add Button Pressed, push item on carts array and save it on local storage
+function addedCart(cartItem, i)
 {
-    carts.map(function(cartItem, i){
-        document.getElementsByClassName("add-btn")[i].addEventListener('click', function(){
-            // check if cart already added
-            if(!(addedCarts.includes(cartItem)))
-            {
-                addedCarts.push(cartItem);
-            }
+    document.getElementsByClassName("add-btn")[i].addEventListener('click', function(){
+        // check if cart already added
+        if(!(carts.includes(cartItem)))
+        {
+            carts.push(cartItem);
+        }
 
-            // local Storage
-            localStorage.setItem("addedCarts", JSON.stringify(addedCarts));
-        });
+        // local Storage
+        localStorage.setItem("carts", JSON.stringify(carts));
     });
 }
 
@@ -179,17 +150,19 @@ document.getElementsByClassName("fa--list")[2].setAttribute("style", "color: #59
 for(let i=0; i<3; i++){
     document.getElementsByClassName("display-list-div")[i].addEventListener('click', function(){
         document.getElementsByClassName("fa--list")[i].setAttribute("style", "color: #595b83;");
-
+        
+        // Other buttons returns to its original color
         for(let j=0; j<3; j++){
             if(j!=i){
                 document.getElementsByClassName("fa--list")[j].setAttribute("style", "color: #060930;");
             }
         }
-
+        // Display list
         if(i == 1){
             document.getElementsByClassName("products-container")[0].setAttribute("style", "flex-direction: column;");
-        }
+        } // Display grid
         else if(i == 2){
+            productsContainer.style.removeProperty('flex-direction');
             showCarts();
         }
     });
@@ -198,9 +171,9 @@ for(let i=0; i<3; i++){
 
 // Filters
 document.getElementsByClassName("filter--div")[0].addEventListener('click', function(){
-    // First Filter: Low->High
+    // First filter Low->High
     if(document.getElementsByClassName("filter-radio")[0].checked){
-        console.log(document.getElementsByClassName("filter-radio")[0].value);
+        // Compare Function to sort array ascending
         function compare(a, b){
             if(a.productPrice > b.productPrice){
                 return 1;
@@ -208,13 +181,13 @@ document.getElementsByClassName("filter--div")[0].addEventListener('click', func
                 return -1;
             }
         }
-        carts.sort(compare);
-        console.log(carts);
+        initialProducts.sort(compare);
         showCarts();
     }
-    // Second Filter: High->Low
-    else if(document.getElementsByClassName("filter-radio")[1].checked){
-        console.log(document.getElementsByClassName("filter-radio")[1].value);
+
+    // Second filter High->Low
+    if(document.getElementsByClassName("filter-radio")[1].checked){
+        // Compare function to sort array descending
         function compare(a, b){
             if(a.productPrice > b.productPrice){
                 return -1;
@@ -222,8 +195,7 @@ document.getElementsByClassName("filter--div")[0].addEventListener('click', func
                 return 1;
             }
         }
-        carts.sort(compare);
-        console.log(carts);
+        initialProducts.sort(compare);
         showCarts();
     }
 });
