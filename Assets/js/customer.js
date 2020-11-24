@@ -151,11 +151,7 @@ function addedCart()
 {
     carts.map(function(cartItem, i){
         document.getElementsByClassName("add-btn")[i].addEventListener('click', function(){
-            // Check If cart already added
-            if(!(addedCarts.includes(cartItem)))
-            {
                 addedCarts.push(cartItem);
-            }
 
             // local Storage
             localStorage.setItem("addedCarts", JSON.stringify(addedCarts));
