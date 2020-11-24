@@ -118,27 +118,25 @@ function showCarts(){
         let product_category_span_text = document.createTextNode(product_category__span);
         product_category_span.appendChild(product_category_span_text);
         product_category_div.appendChild(product_category_span);
+
+        addedCart(cartItem, i);
     });
     
 }
 
 
-addedCart();
-
 // When Add Button Pressed, create array of objects and save it on local storage
 
-function addedCart()
+function addedCart(cartItem, i)
 {
-    initialProducts.map(function(cartItem, i){
-        document.getElementsByClassName("add-btn")[i].addEventListener('click', function(){
-            // check if cart already added
-            if(!(carts.includes(cartItem)))
-            {
-                carts.push(cartItem);
-            }
+    document.getElementsByClassName("add-btn")[i].addEventListener('click', function(){
+        // check if cart already added
+        if(!(carts.includes(cartItem)))
+        {
+            carts.push(cartItem);
+        }
 
-            // local Storage
-            localStorage.setItem("carts", JSON.stringify(carts));
-        });
+        // local Storage
+        localStorage.setItem("carts", JSON.stringify(carts));
     });
 }
