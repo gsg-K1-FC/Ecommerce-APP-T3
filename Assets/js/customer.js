@@ -17,7 +17,7 @@ let initialProducts = [{
     productCategory: "phones"
 }];
 
- let carts = storedCarts ? storedCarts : initialProducts;
+ let carts = storedCarts ? storedCarts : [];
 
 // Products Container
 let productsContainer = document.getElementsByClassName("products-container")[0];
@@ -28,24 +28,7 @@ function showCarts(){
 
     productsContainer.innerHTML = "";
 
-    // Structure:
-    //products-container
-    //               |> product-div
-    //                           |> product--div
-    //                                        |> product---div
-    //                   Image Container                    |> product-img-div
-    //                                                      |               |> product-img
-     //                       category Div                  |> product-category-div
-    //                                                      |                    |> product-content-span
-    //                   Content Container                  |> product-content-div
-    //                                             Price Div                    |> product-content--div
-    //                                                                          |                    |> product-content-span
-    //                                             Add Button Div               |> header-btns--div
-    //                                                                                           |> header-btns-a
-    //                                                                                                         |> header-btns-a-div
-    //                                                                                                                            |> span
-
-    carts.map(function(cartItem, i){
+    initialProducts.map(function(cartItem, i){
 
         let product_div = document.createElement('div');
         product_div.className = "product-div";
@@ -137,28 +120,25 @@ function showCarts(){
         product_category_div.appendChild(product_category_span);
     });
     
-
-    // Local Storage
-    localStorage.setItem("carts", JSON.stringify(carts));
 }
 
 
 addedCart();
 
 // When Add Button Pressed, create array of objects and save it on local storage
-var addedCarts = [];
+
 function addedCart()
 {
-    carts.map(function(cartItem, i){
+    initialProducts.map(function(cartItem, i){
         document.getElementsByClassName("add-btn")[i].addEventListener('click', function(){
             // check if cart already added
-            if(!(addedCarts.includes(cartItem)))
+            if(!(carts.includes(cartItem)))
             {
-                addedCarts.push(cartItem);
+                carts.push(cartItem);
             }
 
             // local Storage
-            localStorage.setItem("addedCarts", JSON.stringify(addedCarts));
+            localStorage.setItem("carts", JSON.stringify(carts));
         });
     });
 }
