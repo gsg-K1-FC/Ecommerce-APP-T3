@@ -314,12 +314,14 @@ label{
     padding-left: 10px;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 
 .product-div{
     width: 200px;
     margin-left: 10px;
+    margin-bottom: 10px;
     height: 340px;
     padding: 2px;
     box-sizing: border-box;

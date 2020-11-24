@@ -27,6 +27,7 @@ showCarts();
 function showCarts(){
 
     productsContainer.innerHTML = "";
+    productsContainer.style.removeProperty('flex-direction');
 
     // Structure:
     //products-container
@@ -151,10 +152,42 @@ function addedCart()
 {
     carts.map(function(cartItem, i){
         document.getElementsByClassName("add-btn")[i].addEventListener('click', function(){
+            // check if cart already added
+            if(!(addedCarts.includes(cartItem)))
+            {
                 addedCarts.push(cartItem);
+            }
 
             // local Storage
             localStorage.setItem("addedCarts", JSON.stringify(addedCarts));
         });
+    });
+}
+
+
+
+// Filters & Display
+
+// Display
+//  Set Grid Display as default
+document.getElementsByClassName("fa--list")[2].setAttribute("style", "color: #595b83;");
+
+// When display button clicked, change its color
+for(let i=0; i<3; i++){
+    document.getElementsByClassName("display-list-div")[i].addEventListener('click', function(){
+        document.getElementsByClassName("fa--list")[i].setAttribute("style", "color: #595b83;");
+
+        for(let j=0; j<3; j++){
+            if(j!=i){
+                document.getElementsByClassName("fa--list")[j].setAttribute("style", "color: #060930;");
+            }
+        }
+
+        if(i == 1){
+            document.getElementsByClassName("products-container")[0].setAttribute("style", "flex-direction: column;");
+        }
+        else if(i == 2){
+            showCarts();
+        }
     });
 }
