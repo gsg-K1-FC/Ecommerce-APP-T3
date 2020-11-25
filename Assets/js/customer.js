@@ -10,7 +10,7 @@ let initialProducts = [{
 },
 {
     id: 1,
-    productName: "iphone x",
+    productName: "iphone-x",
     productDetails: "gray",
     productPrice: 2000,
     productImg: "/Assets/images/iphone x.png",
@@ -32,6 +32,9 @@ function showCarts(){
 
         let product_div = document.createElement('div');
         product_div.className = "product-div";
+        let product_category = cartItem.productCategory;
+        let product_name = cartItem.productName;
+        product_div.className = "product-div " + product_category + " " + product_name;
         productsContainer.appendChild(product_div);
 
 
@@ -140,3 +143,189 @@ function addedCart(cartItem, i)
         localStorage.setItem("carts", JSON.stringify(carts));
     });
 }
+
+
+
+
+// Filters & Display
+
+// Display
+//  Set Grid Display as default
+document.getElementsByClassName("fa--list")[2].setAttribute("style", "color: #595b83;");
+
+// When display button clicked, change its color
+for(let i=0; i<3; i++){
+    document.getElementsByClassName("display-list-div")[i].addEventListener('click', function(){
+        document.getElementsByClassName("fa--list")[i].setAttribute("style", "color: #595b83;");
+        
+        // Other buttons returns to its original color
+        for(let j=0; j<3; j++){
+            if(j!=i){
+                document.getElementsByClassName("fa--list")[j].setAttribute("style", "color: #060930;");
+            }
+        }
+        // Filter by category
+        if(i == 0){
+            let dropdown_content = document.getElementById("myDropdown");
+            dropdown_content.innerHTML = "";
+            // Show dropdown
+            document.getElementById("myDropdown").classList.toggle("show");
+
+            // First dropdown element: All Categories
+            let dropdown_a_all = document.createElement('a');
+            dropdown_a_all.className = "dropdown-a";
+            dropdown_a_all.innerText = "All";
+            dropdown_content.appendChild(dropdown_a_all);
+
+            // Category Array
+            let categories = [];
+            for(let k=0; k<initialProducts.length; k++)
+            {
+                if(!(categories.includes(initialProducts[k].productCategory))){
+                    categories.push(initialProducts[k].productCategory);
+                }
+            }
+
+            // Dropdown Content: get Other Categories from category array
+            for(let k=0; k<categories.length; k++){
+                let dropdown_a = document.createElement('a');
+                dropdown_a.className = "dropdown-a";
+                dropdown_a.innerText = categories[k];
+                dropdown_content.appendChild(dropdown_a);
+            }
+
+            // Select Specific Category
+            for(let k=0; k<=categories.length; k++){
+                document.getElementsByClassName("dropdown-a")[k].addEventListener('click', function(){
+                    // All Categories
+                    if(k === 0){
+                        showCarts();
+                    }else{ //Other categories
+                        showCarts();
+                        for(let j=0; j<initialProducts.length; j++){
+                            if(initialProducts[j].productCategory != categories[k-1]){
+                                let classCategory = "."+initialProducts[j].productCategory;
+                                console.log(classCategory);
+                                document.querySelectorAll(classCategory).forEach(function(a){
+                                    a.remove();
+                                });
+                            }
+                        }
+                    }
+                });
+            }
+        }
+        // Display list
+        if(i == 1){
+            document.getElementsByClassName("products-container")[0].setAttribute("style", "flex-direction: column;");
+        } // Display grid
+        else if(i == 2){
+            productsContainer.style.removeProperty('flex-direction');
+        }
+    });
+}
+
+
+// Filters
+document.getElementsByClassName("filter--div")[0].addEventListener('click', function(){
+    // First filter Low->High
+    if(document.getElementsByClassName("filter-radio")[0].checked){
+        // Compare Function to sort array ascending
+        function compare(a, b){
+            if(a.productPrice > b.productPrice){
+                return 1;
+            } else if(a.productPrice < b.productPrice){
+                return -1;
+            }
+        }
+        initialProducts.sort(compare);
+        showCarts();
+    }
+
+    // Second filter High->Low
+    if(document.getElementsByClassName("filter-radio")[1].checked){
+        // Compare function to sort array descending
+        function compare(a, b){
+            if(a.productPrice > b.productPrice){
+                return -1;
+            } else if(a.productPrice < b.productPrice){
+                return 1;
+            }
+        }
+        initialProducts.sort(compare);
+        showCarts();
+    }
+}); 
+
+
+// Search bar
+// Name Array
+let nameArray = [];
+initialProducts.map(function(cartItem,i){
+    if(!(nameArray.includes(cartItem.productName))){
+        nameArray.push(cartItem.productName);
+    }
+});
+
+// create li and a elements
+for(let i=0; i<nameArray.length; i++){
+    let li = document.createElement('li');
+    li.className = "li-search";
+    document.getElementById("myUL").appendChild(li);
+    let a = document.createElement('a');
+    a.className = "a-search";
+    a.innerText = nameArray[i];
+    li.appendChild(a);
+}
+// Search Suggestions
+document.getElementById("search-input").addEventListener("keyup", function(){
+    // Show Options
+    document.getElementById("myUL").style.display = "block";
+    // If Input Empty hide options
+    if(document.getElementById("search-input").value == ""){
+        document.getElementById("myUL").style.display = "none";
+    }
+
+    let input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("search-input");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (let i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+
+    // Select Specific Name from search
+    for(let k=0; k<nameArray.length; k++){
+        document.getElementsByClassName("a-search")[k].addEventListener('click', function(){
+            //Other categories
+            showCarts();
+            for(let j=0; j<initialProducts.length; j++){
+                if(initialProducts[j].productName != nameArray[k]){
+                    let className = "."+initialProducts[j].productName;
+                    console.log(className);
+                    document.querySelectorAll(className).forEach(function(a){
+                        a.remove();
+                    });
+                }
+            }
+            
+        });
+    }
+
+    // When x icon clicked close suggestions
+    document.getElementsByClassName("fa--times")[0].addEventListener('click', function(){
+        document.getElementById("myUL").style.display = "none";
+        document.getElementById("search-input").value = "";
+    });
+
+    // When search icon clicked move cursor to input search
+    document.getElementsByClassName("fa--search")[0].addEventListener('click', function(){
+    });
+});
