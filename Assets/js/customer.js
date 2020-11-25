@@ -7,7 +7,7 @@ let initialProducts = [{
     productName: "t-shirt",
     productDetails: "white t-shirt",
     productPrice: 13.5,
-    productImg: "/Assets/images/t-shirt.png",
+    productImg: "./Assets/images/t-shirt.png",
     productCategory: "clothes"
 },
 {
@@ -15,7 +15,7 @@ let initialProducts = [{
     productName: "iphone-x",
     productDetails: "gray",
     productPrice: 2000,
-    productImg: "/Assets/images/iphone x.png",
+    productImg: "./Assets/images/iphone x.png",
     productCategory: "phones"
 }];
 localStorage.setItem("storeProducts", JSON.stringify(initialProducts));
@@ -177,9 +177,9 @@ for (let i = 0; i < 3; i++) {
 
             // Category Array
             let categories = [];
-            for (let k = 0; k < initialProducts.length; k++) {
-                if (!(categories.includes(initialProducts[k].productCategory))) {
-                    categories.push(initialProducts[k].productCategory);
+            for (let k = 0; k < storedProduct.length; k++) {
+                if (!(categories.includes(storedProduct[k].productCategory))) {
+                    categories.push(storedProduct[k].productCategory);
                 }
             }
 
@@ -199,9 +199,9 @@ for (let i = 0; i < 3; i++) {
                         showCarts();
                     } else { //Other categories
                         showCarts();
-                        for (let j = 0; j < initialProducts.length; j++) {
-                            if (initialProducts[j].productCategory != categories[k - 1]) {
-                                let classCategory = "." + initialProducts[j].productCategory;
+                        for (let j = 0; j < storedProduct.length; j++) {
+                            if (storedProduct[j].productCategory != categories[k - 1]) {
+                                let classCategory = "." + storedProduct[j].productCategory;
                                 console.log(classCategory);
                                 document.querySelectorAll(classCategory).forEach(function(a) {
                                     a.remove();
@@ -235,7 +235,7 @@ document.getElementsByClassName("filter--div")[0].addEventListener('click', func
                 return -1;
             }
         }
-        initialProducts.sort(compare);
+        storedProduct.sort(compare);
         showCarts();
     }
 
@@ -249,7 +249,7 @@ document.getElementsByClassName("filter--div")[0].addEventListener('click', func
                 return 1;
             }
         }
-        initialProducts.sort(compare);
+        storedProduct.sort(compare);
         showCarts();
     }
 }); 
@@ -258,7 +258,7 @@ document.getElementsByClassName("filter--div")[0].addEventListener('click', func
 // Search bar
 // Name Array
 let nameArray = [];
-initialProducts.map(function(cartItem,i){
+storedProduct.map(function(cartItem,i){
     if(!(nameArray.includes(cartItem.productName))){
         nameArray.push(cartItem.productName);
     }
@@ -276,9 +276,9 @@ for(let i=0; i<nameArray.length; i++){
     // Select search items
     document.getElementsByClassName("a-search")[i].addEventListener('click', function(){
         showCarts();
-        for(let j=0; j<initialProducts.length; j++){
-            if(initialProducts[j].productName != nameArray[i]){
-                let className = "."+initialProducts[j].productName;
+        for(let j=0; j<storedProduct.length; j++){
+            if(storedProduct[j].productName != nameArray[i]){
+                let className = "."+storedProduct[j].productName;
                 document.querySelectorAll(className).forEach(function(a){
                     a.remove();
                 });
