@@ -27,7 +27,7 @@ showCarts();
 function showCarts(){
 
     productsContainer.innerHTML = "";
-
+    
     initialProducts.map(function(cartItem, i){
 
         let product_div = document.createElement('div');
@@ -124,12 +124,9 @@ function showCarts(){
 
         addedCart(cartItem, i);
     });
-    
 }
 
-
-// When Add Button Pressed, create array of objects and save it on local storage
-
+// When Add Button Pressed, push item on carts array and save it on local storage
 function addedCart(cartItem, i)
 {
     document.getElementsByClassName("add-btn")[i].addEventListener('click', function(){
@@ -324,8 +321,5 @@ document.getElementById("search-input").addEventListener("keyup", function(){
         document.getElementById("myUL").style.display = "none";
         document.getElementById("search-input").value = "";
     });
-
-    // When search icon clicked move cursor to input search
-    document.getElementsByClassName("fa--search")[0].addEventListener('click', function(){
-    });
 });
+ 
