@@ -61,15 +61,7 @@ function showCarts() {
    productCategory.className = "productCategory";
    productDiv.appendChild(productCategory);
 
-  total = carts.reduce(function(accumulator, currentValue) {
- 
-       return accumulator + currentValue.productPrice;
-   
-     },0)
-     
-
-     totalprice.textContent = "Total price : " + total;
-
+  
 
         allProducts.appendChild(productDiv);
 
@@ -91,6 +83,15 @@ function showCarts() {
         });
 
     });
+    total = carts.reduce(function(accumulator, currentValue) {
+ 
+        return accumulator + currentValue.productPrice;
+    
+      },0)
+      
+ 
+      totalprice.textContent = "Total price : " + total;
+ 
     localStorage.setItem("carts", JSON.stringify(carts));
 }
 
