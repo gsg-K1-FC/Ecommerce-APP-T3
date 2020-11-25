@@ -1,32 +1,17 @@
 let storedCarts = JSON.parse(localStorage.getItem("carts"));
 
-let intialCarts = [{
-    id: 0,
-    productName: "t-shirt",
-    productDetails: "",
-    productPrice: 30,
-    productImg: "https://images.unsplash.com/photo-1605723802236-aef70d35a2ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80",
-
-    productCategory: "clothes"
-}
-    , {
-        id: 5,
-    productName: "shirt",
-    productDetails: "",
-    productPrice: 40,
-    productImg: "https://images.unsplash.com/photo-1605723802236-aef70d35a2ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80",
-    productCategory: "clothes"
-}];
 
 
-let carts = storedCarts ? storedCarts : intialCarts;
+
+let carts = storedCarts ? storedCarts : [];
 
 
 //container div for all items
 let allProducts = document.getElementsByClassName("allProducts")[0];
+let container = document.getElementsByClassName("container")[0];
 
-let totalPrice = 0;
-
+let totalprice = document.getElementById("totalPrice");
+let total = 0;
 showCarts();
 
 function showCarts() {
@@ -49,12 +34,7 @@ function showCarts() {
         productName.className = "productName";
         productDiv.appendChild(productName);
 
-        //product category
-        let productCategory = document.createElement("span");
-        productCategory.textContent = cartItem.productCategory;
-        productCategory.className = "productCategory";
-        productDiv.appendChild(productCategory);
-
+     
         //creat continer dive for the delete button and the price
         let priceAndDeleteContainer = document.createElement("div");
         productDiv.appendChild(priceAndDeleteContainer);
@@ -72,7 +52,24 @@ function showCarts() {
         deleteButton.className = "deleteButton";
         priceAndDeleteContainer.appendChild(deleteButton);
 
-        totalPrice += cartItem.productPrice;
+
+   //product category
+   let productCategory = document.createElement("span");
+   productCategory.textContent = cartItem.productCategory;
+   productCategory.className = "productCategory";
+   productDiv.appendChild(productCategory);
+
+console.log(carts) ;  
+  total = carts.reduce(function(accumulator, currentValue) {
+    console.log(accumulator+ " acc");
+       return accumulator + currentValue.productPrice;
+   
+     },0)
+     
+     console.log(total + "total");
+     totalprice.textContent = "Total price : " + total;
+//    let totalPrice = 0;
+//         totalPrice += cartItem.productPrice;
 
         allProducts.appendChild(productDiv);
 
@@ -87,8 +84,8 @@ function showCarts() {
             if (confirmationResults) {
     
                 carts.splice(i, 1);
-                showCarts();
-                
+                localStorage.setItem("carts", JSON.stringify(carts));
+                showCarts(); 
             }
            
         });
@@ -97,11 +94,12 @@ function showCarts() {
     localStorage.setItem("carts", JSON.stringify(carts));
 }
 
+container.appendChild(allProducts);
 //store the total price in a span and give a class name 
-let total = document.getElementsByClassName("total");
-let price = document.createElement("span");
-price.textContent = "Total price : " + totalPrice;
-total.appendChild(price);
+// let total = document.createElement("div");
+// total.textContent ="Total Price :" + totalPrice;
+// total.className = "totalPrice";
+// container.appendChild(total);
 
 
 

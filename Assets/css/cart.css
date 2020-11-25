@@ -1,46 +1,48 @@
 * {
-    margin: 0;
-    padding: 0;
-  }
+  margin: 0;
+  padding: 0;
+}
+
+.allProducts{
+  display: flex;
+  justify-content: space-around;
+ color: #595b83;
+  width:90%;
+  margin: 5%;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.product {
   
-  .allProducts{
-    display: flex;
-    justify-content: space-around;
-    width:90%;
-    margin: 5%;
-    font-family: 'Quicksand', sans-serif;
-  }
-  
-  .product {
-    
 display: flex;
 flex-direction: column;
 width: 20%;
-border: 1px solid black;
-padding: 10px;
-height: 30%;
-margin: 5%;
 
-  }
+padding: 10px;
+height: 10%;
+margin: 5%;
+border: 1px solid #595b83;
+border-radius: 9px;
+}
 .cardImg {
- padding: 10px;
- height: 10%;
+padding: 10px;
+height: 50vh;
 }
 
 .productName {
 text-align: center;
 padding: 10px;
-font-size: 20px;
-
+font-size: 30px;
+font-weight: 1000;
 }
-  .priceAndDelete {
-    display: flex;
-    justify-content: space-between;
-   
-  }
+.priceAndDelete {
+  display: flex;
+  justify-content: space-around;
+ 
+}
 
 .productPrice{
-  
+
 padding-top: 15px;
 color: #5F5284;
 font-size:30px;
@@ -48,34 +50,38 @@ font-size:30px;
 
 .deleteButton{
 
- 
-
-  background-color: white;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 150%;
-  display: flex;
-
-  text-align: center;
-  letter-spacing: 0.0075em;
-  color: #5F5284;
-padding: 2%;
- border: 1px solid  #5F5284;;
-  
+background-color: white;
+color: #595b83;
+font-family: 'Quicksand', sans-serif;
+line-height: 1;
+font-weight: 700;
+font-size: 18px;
+display: flex;
+align-items: center;
+justify-content: center;
+max-width: 40%;
+width: 100%;
+border-radius: 5px;
 }
 
 .productCategory{
-font-weight: 20px;
+
+font-size: 30px;
+padding-top: 10px;
+text-align: center;
 }
 
-.total{
-
-  position: absolute;
-  width: 5%;
-  border: 1px solid black;
-  padding: 10px;
-  height: 5%;
- 
- 
+.totalPrice{
+display: flex;
+position: absolute;
+width: 10%;
+border: 1px solid #595b83;
+border-radius: 9px;
+padding: 10px;
+height: 5%;
+margin: 1%;
+margin-left: 10%;
+color: #595b83;
+font-size: 20px;
+font-weight: 1000;
 }
