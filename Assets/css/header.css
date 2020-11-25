@@ -1,14 +1,14 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     overflow-y: scroll;
     font-family: 'Overpass', sans-serif;
 }
 
-#root{
+#root {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -16,27 +16,28 @@ body{
 
 
 /* Header */
-header{
+
+header {
     position: fixed;
 }
 
-.header-div{
+.header-div {
     width: 100vw;
     position: sticky;
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: rgb(230, 236, 240);
-    background-color: rgba(255,255,255,1.00);
+    background-color: rgba(255, 255, 255, 1.00);
     z-index: 3;
     top: 0px;
 }
 
-.header--div{
+.header--div {
     padding-left: 40px;
     padding-right: 40px;
 }
 
-.header---div{
+.header---div {
     width: 100%;
     height: 55px;
     display: flex;
@@ -44,8 +45,10 @@ header{
     align-items: center;
 }
 
+
 /* App Name */
-.header-div-name{
+
+.header-div-name {
     display: flex;
     justify-content: center;
     height: 100%;
@@ -53,15 +56,17 @@ header{
     align-items: center
 }
 
-.header-h2-name{
+.header-h2-name {
     font-weight: 1000;
     font-size: 22px;
-    color:#060930;
+    color: #060930;
     max-width: 100%;
 }
 
+
 /* Search Bar */
-.header-div-search{
+
+.header-div-search {
     width: 300px;
     min-height: 30px;
     align-items: center;
@@ -70,7 +75,7 @@ header{
     top: 0;
 }
 
-.search-form-div{
+.search-form-div {
     background-color: rgb(230, 236, 240);
     display: flex;
     justify-content: center;
@@ -78,19 +83,21 @@ header{
     height: 40px;
 }
 
-.search-form--div{
+.search-form--div {
     display: flex;
     flex-direction: row;
 }
 
+
 /* Search Icon */
-.search-icon-div{
+
+.search-icon-div {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.fa--search{
+.fa--search {
     padding-left: 10px;
     color: #060930;
     min-width: 30px;
@@ -102,28 +109,31 @@ header{
     color: #595b83;
 }
 
+
 /* search content */
-.search-content-div{
+
+.search-content-div {
     font-weight: 400;
     font-size: 19px;
     color: #060930;
     display: flex;
 }
 
-.search-content-input{
+.search-content-input {
     text-align: left;
     background-color: rgba(0, 0, 0, 0);
     border: none;
     font-size: 17px;
 }
 
-.search-content-input:focus{
+.search-content-input:focus {
     outline-style: none;
 }
 
 
 /* Times Icon */
-.search-times-icon{
+
+.search-times-icon {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -142,7 +152,8 @@ header{
 
 
 /* Header Buttons */
-.header-btns-div{
+
+.header-btns-div {
     min-height: 30px;
     align-items: center;
     display: flex;
@@ -152,14 +163,14 @@ header{
     width: 250px;
 }
 
-.header-btns--div{
+.header-btns--div {
     width: 100px;
 }
 
-.header-btns-a{
+.header-btns-a {
     cursor: pointer;
     border-width: 1px;
-    border-color:#595b83;
+    border-color: #595b83;
     border-style: solid;
     border-radius: 5px;
     height: 35px;
@@ -168,12 +179,12 @@ header{
     justify-content: center;
 }
 
-.header-btns-a:hover{
+.header-btns-a:hover {
     background-color: #595b83;
     transition-duration: 0.5s;
 }
 
-.header-btns-a-div{
+.header-btns-a-div {
     color: #595b83;
     font-family: 'Quicksand', sans-serif;
     line-height: 1;
@@ -186,14 +197,15 @@ header{
     width: 100%;
 }
 
-.header-btns-a-div:hover{
+.header-btns-a-div:hover {
     color: white;
     transition-duration: 0.5s;
 }
 
 
 /* Cart Icon */
-.header-div-cart{
+
+.header-div-cart {
     display: flex;
     justify-content: center;
     height: 100%;
@@ -202,7 +214,7 @@ header{
     top: 0;
 }
 
-.header-div--cart{
+.header-div--cart {
     display: flex;
     border-radius: 9999px;
     height: 40px;
@@ -214,12 +226,12 @@ header{
     padding: 5px;
 }
 
-.header-div--cart:hover{
+.header-div--cart:hover {
     background-color: rgba(89, 91, 131, 0.3);
     transition-duration: 0.5s;
 }
 
-.fa--cart{
+.fa--cart {
     color: #060930;
 }
 
