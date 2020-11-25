@@ -1,6 +1,7 @@
 let storedCarts = JSON.parse(localStorage.getItem("carts"));
 let storedProduct = JSON.parse(localStorage.getItem("storeProducts"));
 
+
 let initialProducts = [{
     id: 0,
     productName: "t-shirt",
@@ -17,6 +18,7 @@ let initialProducts = [{
     productImg: "/Assets/images/iphone x.png",
     productCategory: "phones"
 }];
+localStorage.setItem("storeProducts", JSON.stringify(initialProducts));
 
  let carts = storedCarts ? storedCarts : [];
 
@@ -29,7 +31,7 @@ function showCarts() {
 
     productsContainer.innerHTML = "";
 
-    initialProducts.map(function(cartItem, i) {
+    storedProduct.map(function(cartItem, i) {
 
         let product_div = document.createElement('div');
         product_div.className = "product-div";
