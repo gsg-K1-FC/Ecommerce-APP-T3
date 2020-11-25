@@ -1,34 +1,20 @@
 let storedCarts = JSON.parse(localStorage.getItem("carts"));
+let storedProduct = JSON.parse(localStorage.getItem("storeProducts"));
 
-let initialProducts = [{
-    id: 0,
-    productName: "t-shirt",
-    productDetails: "white t-shirt",
-    productPrice: 13.5,
-    productImg: "/Assets/images/t-shirt.png",
-    productCategory: "clothes"
-},
-{
-    id: 1,
-    productName: "iphone x",
-    productDetails: "gray",
-    productPrice: 2000,
-    productImg: "/Assets/images/iphone x.png",
-    productCategory: "phones"
-}];
+let initialProducts = storedProduct ? storedProduct : [];
 
- let carts = storedCarts ? storedCarts : [];
+let carts = storedCarts ? storedCarts : [];
 
 // Products Container
 let productsContainer = document.getElementsByClassName("products-container")[0];
 
 showCarts();
 
-function showCarts(){
+function showCarts() {
 
     productsContainer.innerHTML = "";
-    
-    initialProducts.map(function(cartItem, i){
+
+    initialProducts.map(function(cartItem, i) {
 
         let product_div = document.createElement('div');
         let product_category = cartItem.productCategory;
@@ -125,12 +111,10 @@ function showCarts(){
 }
 
 // When Add Button Pressed, push item on carts array and save it on local storage
-function addedCart(cartItem, i)
-{
-    document.getElementsByClassName("add-btn")[i].addEventListener('click', function(){
+function addedCart(cartItem, i) {
+    document.getElementsByClassName("add-btn")[i].addEventListener('click', function() {
         // check if cart already added
-        if(!(carts.includes(cartItem)))
-        {
+        if (!(carts.includes(cartItem))) {
             carts.push(cartItem);
         }
 
@@ -148,18 +132,18 @@ function addedCart(cartItem, i)
 document.getElementsByClassName("fa--list")[2].setAttribute("style", "color: #595b83;");
 
 // When display button clicked, change its color
-for(let i=0; i<3; i++){
-    document.getElementsByClassName("display-list-div")[i].addEventListener('click', function(){
+for (let i = 0; i < 3; i++) {
+    document.getElementsByClassName("display-list-div")[i].addEventListener('click', function() {
         document.getElementsByClassName("fa--list")[i].setAttribute("style", "color: #595b83;");
-        
+
         // Other buttons returns to its original color
-        for(let j=0; j<3; j++){
-            if(j!=i){
+        for (let j = 0; j < 3; j++) {
+            if (j != i) {
                 document.getElementsByClassName("fa--list")[j].setAttribute("style", "color: #060930;");
             }
         }
         // Filter by category
-        if(i == 0){
+        if (i == 0) {
             let dropdown_content = document.getElementById("myDropdown");
             dropdown_content.innerHTML = "";
             // Show dropdown
@@ -173,15 +157,14 @@ for(let i=0; i<3; i++){
 
             // Category Array
             let categories = [];
-            for(let k=0; k<initialProducts.length; k++)
-            {
-                if(!(categories.includes(initialProducts[k].productCategory))){
+            for (let k = 0; k < initialProducts.length; k++) {
+                if (!(categories.includes(initialProducts[k].productCategory))) {
                     categories.push(initialProducts[k].productCategory);
                 }
             }
 
             // Dropdown Content: get Other Categories from category array
-            for(let k=0; k<categories.length; k++){
+            for (let k = 0; k < categories.length; k++) {
                 let dropdown_a = document.createElement('a');
                 dropdown_a.className = "dropdown-a";
                 dropdown_a.innerText = categories[k];
@@ -189,18 +172,18 @@ for(let i=0; i<3; i++){
             }
 
             // Select Specific Category
-            for(let k=0; k<=categories.length; k++){
-                document.getElementsByClassName("dropdown-a")[k].addEventListener('click', function(){
+            for (let k = 0; k <= categories.length; k++) {
+                document.getElementsByClassName("dropdown-a")[k].addEventListener('click', function() {
                     // All Categories
-                    if(k === 0){
+                    if (k === 0) {
                         showCarts();
-                    }else{ //Other categories
+                    } else { //Other categories
                         showCarts();
-                        for(let j=0; j<initialProducts.length; j++){
-                            if(initialProducts[j].productCategory != categories[k-1]){
-                                let classCategory = "."+initialProducts[j].productCategory;
+                        for (let j = 0; j < initialProducts.length; j++) {
+                            if (initialProducts[j].productCategory != categories[k - 1]) {
+                                let classCategory = "." + initialProducts[j].productCategory;
                                 console.log(classCategory);
-                                document.querySelectorAll(classCategory).forEach(function(a){
+                                document.querySelectorAll(classCategory).forEach(function(a) {
                                     a.remove();
                                 });
                             }
@@ -210,10 +193,10 @@ for(let i=0; i<3; i++){
             }
         }
         // Display list
-        if(i == 1){
+        if (i == 1) {
             document.getElementsByClassName("products-container")[0].setAttribute("style", "flex-direction: column;");
         } // Display grid
-        else if(i == 2){
+        else if (i == 2) {
             productsContainer.style.removeProperty('flex-direction');
         }
     });
@@ -221,14 +204,14 @@ for(let i=0; i<3; i++){
 
 
 // Filters
-document.getElementsByClassName("filter--div")[0].addEventListener('click', function(){
+document.getElementsByClassName("filter--div")[0].addEventListener('click', function() {
     // First filter Low->High
-    if(document.getElementsByClassName("filter-radio")[0].checked){
+    if (document.getElementsByClassName("filter-radio")[0].checked) {
         // Compare Function to sort array ascending
-        function compare(a, b){
-            if(a.productPrice > b.productPrice){
+        function compare(a, b) {
+            if (a.productPrice > b.productPrice) {
                 return 1;
-            } else if(a.productPrice < b.productPrice){
+            } else if (a.productPrice < b.productPrice) {
                 return -1;
             }
         }
@@ -237,16 +220,16 @@ document.getElementsByClassName("filter--div")[0].addEventListener('click', func
     }
 
     // Second filter High->Low
-    if(document.getElementsByClassName("filter-radio")[1].checked){
+    if (document.getElementsByClassName("filter-radio")[1].checked) {
         // Compare function to sort array descending
-        function compare(a, b){
-            if(a.productPrice > b.productPrice){
+        function compare(a, b) {
+            if (a.productPrice > b.productPrice) {
                 return -1;
-            } else if(a.productPrice < b.productPrice){
+            } else if (a.productPrice < b.productPrice) {
                 return 1;
             }
         }
         initialProducts.sort(compare);
         showCarts();
     }
-}); 
+});
