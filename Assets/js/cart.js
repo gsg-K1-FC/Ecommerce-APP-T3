@@ -98,10 +98,10 @@ function showCarts() {
 }
 
 //store the total price in a span and give a class name 
-let total = document.createElement("div");
-total.textContent = "Total price : " + totalPrice;
-total.className = "totalPrice";
-allProducts.appendChild(total);
+let total = document.getElementsByClassName("total");
+let price = document.createElement("span");
+price.textContent = "Total price : " + totalPrice;
+total.appendChild(price);
 
 
 

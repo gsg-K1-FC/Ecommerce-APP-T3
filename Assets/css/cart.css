@@ -69,14 +69,13 @@ padding: 2%;
 font-weight: 20px;
 }
 
-.totalPrice{
-  display: flex;
+.total{
+
   position: absolute;
   width: 5%;
   border: 1px solid black;
   padding: 10px;
   height: 5%;
-  margin-top: 55%;
-  margin-right: 70%;
-margin-bottom: 2%;
+ 
+ 
 }
