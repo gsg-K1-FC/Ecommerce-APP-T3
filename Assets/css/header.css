@@ -225,7 +225,7 @@ header{
 
 
 /* search */
-#myUL {
+#suggestions-list {
     display: none;
     list-style-type: none;
     padding: 0;
@@ -240,7 +240,7 @@ header{
     border-width: 2px;
 }
 
-#myUL li a {
+#suggestions-list li a {
     margin-top: -1px; /* Prevent double borders */
     background-color: rgb(230, 236, 240);
     padding: 12px;
@@ -250,7 +250,7 @@ header{
     display: block
 }
 
-#myUL li a:hover {
+#suggestions-list li a:hover {
     background-color: #eee;
     cursor: pointer;
 }

@@ -267,26 +267,39 @@ initialProducts.map(function(cartItem,i){
 // create li and a elements
 for(let i=0; i<nameArray.length; i++){
     let li = document.createElement('li');
-    li.className = "li-search";
-    document.getElementById("myUL").appendChild(li);
+    document.getElementById("suggestions-list").appendChild(li);
     let a = document.createElement('a');
     a.className = "a-search";
     a.innerText = nameArray[i];
     li.appendChild(a);
+
+    // Select search items
+    document.getElementsByClassName("a-search")[i].addEventListener('click', function(){
+        showCarts();
+        for(let j=0; j<initialProducts.length; j++){
+            if(initialProducts[j].productName != nameArray[i]){
+                let className = "."+initialProducts[j].productName;
+                document.querySelectorAll(className).forEach(function(a){
+                    a.remove();
+                });
+            }
+        }
+        
+    });
 }
 // Search Suggestions
 document.getElementById("search-input").addEventListener("keyup", function(){
     // Show Options
-    document.getElementById("myUL").style.display = "block";
+    document.getElementById("suggestions-list").style.display = "block";
     // If Input Empty hide options
     if(document.getElementById("search-input").value == ""){
-        document.getElementById("myUL").style.display = "none";
+        document.getElementById("suggestions-list").style.display = "none";
     }
 
     let input, filter, ul, li, a, i, txtValue;
     input = document.getElementById("search-input");
     filter = input.value.toUpperCase();
-    ul = document.getElementById("myUL");
+    ul = document.getElementById("suggestions-list");
     li = ul.getElementsByTagName("li");
     for (let i = 0; i < li.length; i++) {
         a = li[i].getElementsByTagName("a")[0];
@@ -298,26 +311,9 @@ document.getElementById("search-input").addEventListener("keyup", function(){
         }
     }
 
-    // Select Specific Name from search
-    for(let k=0; k<nameArray.length; k++){
-        document.getElementsByClassName("a-search")[k].addEventListener('click', function(){
-            //Other categories
-            showCarts();
-            for(let j=0; j<initialProducts.length; j++){
-                if(initialProducts[j].productName != nameArray[k]){
-                    let className = "."+initialProducts[j].productName;
-                    document.querySelectorAll(className).forEach(function(a){
-                        a.remove();
-                    });
-                }
-            }
-            
-        });
-    }
-
     // When x icon clicked close suggestions
     document.getElementsByClassName("fa--times")[0].addEventListener('click', function(){
-        document.getElementById("myUL").style.display = "none";
+        document.getElementById("suggestions-list").style.display = "none";
         document.getElementById("search-input").value = "";
     });
 });
