@@ -1,7 +1,6 @@
     * {
         margin: 0px;
         padding: 0px;
-        color: #595b83;
         font-family: 'Overpass', sans-serif;
     }
     
@@ -22,8 +21,6 @@
     
     .drop-down-form {
         display: none;
-        /* display: flex;
-    flex-direction: column; */
         background-color: rgb(230, 236, 240);
         margin-left: 2%;
         width: 50%;
@@ -140,6 +137,7 @@
         border-radius: 35px;
         width: 40%;
         height: 30px;
+        color: #595b83;
     }
     
     .editSubmit {

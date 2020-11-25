@@ -5,7 +5,7 @@ let image = document.getElementById("input-image");
 let category = document.getElementById("input-category");
 let allProducts = document.querySelector(".allProducts");
 let Containers = document.querySelector(".Containers");
-let storedProduct = JSON.parse(localStorage.getItem("productForm"));
+let storedProduct = JSON.parse(localStorage.getItem("storeProducts"));
 let addProducts = document.getElementById("add");
 let submitForm = document.querySelector(".seller-form");
 let popUpForm = document.querySelector('.drop-down-form');
@@ -79,8 +79,6 @@ function showProduct() {
         sellerBtn.className = "seller-btn"
         deleteBtn.className = "delete-btn"
         editBtn.className = "edit-btn"
-
-        // console.log(product, 'llllllll')
         nameLabel.innerText = product.productName;
         priceLabel.innerText = product.productPrice;
 
@@ -93,7 +91,7 @@ function showProduct() {
         productContainer.appendChild(Image);
 
         productContainer.appendChild(pContainer);
-        // pContainer.appendChild(data); 
+
         pContainer.appendChild(nameLabel);
         pContainer.appendChild(priceLabel);
         pContainer.appendChild(categoryLabel)
@@ -150,7 +148,7 @@ function showProduct() {
                 priceLabel.innerText = priceInput.value;
                 if (openEditProduct) {
                     editDiv.remove()
-                    localStorage.setItem("productForm", JSON.stringify(products));
+                    localStorage.setItem("storeProducts", JSON.stringify(products));
                     openEditProduct = false;
 
                 }
@@ -158,14 +156,14 @@ function showProduct() {
 
         });
     });
-    localStorage.setItem("productForm", JSON.stringify(products));
+    localStorage.setItem("storeProducts", JSON.stringify(products));
 
 
 }
 
 // store the information from form to local storage
 submitForm.addEventListener('submit', function(event) {
-    event.preventDefault()
+
     productForm.productName = name.value;
     productForm.productDetails = detail.value;
     productForm.productPrice = price.value;
@@ -173,7 +171,7 @@ submitForm.addEventListener('submit', function(event) {
     productForm.productCategory = category.value;
     products.push(productForm);
     popUpForm.style.display = "none";
-    localStorage.setItem("productForm", JSON.stringify(products));
+    localStorage.setItem("storeProducts", JSON.stringify(products));
 
     showProduct();
 

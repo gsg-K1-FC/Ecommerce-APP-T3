@@ -1,34 +1,36 @@
 let storedCarts = JSON.parse(localStorage.getItem("carts"));
+let storedProduct = JSON.parse(localStorage.getItem("storeProducts"));
+// let initialProducts = [{
+//         id: 0,
+//         productName: "t-shirt",
+//         productDetails: "white t-shirt",
+//         productPrice: 13.5,
+//         productImg: "/Assets/images/t-shirt.png",
+//         productCategory: "clothes"
+//     },
+//     {
+//         id: 1,
+//         productName: "iphone x",
+//         productDetails: "gray",
+//         productPrice: 2000,
+//         productImg: "/Assets/images/iphone x.png",
+//         productCategory: "phones"
+//     }
+// ];
+let initialProducts = storedProduct ? storedProduct : [];
 
-let initialProducts = [{
-    id: 0,
-    productName: "t-shirt",
-    productDetails: "white t-shirt",
-    productPrice: 13.5,
-    productImg: "/Assets/images/t-shirt.png",
-    productCategory: "clothes"
-},
-{
-    id: 1,
-    productName: "iphone x",
-    productDetails: "gray",
-    productPrice: 2000,
-    productImg: "/Assets/images/iphone x.png",
-    productCategory: "phones"
-}];
-
- let carts = storedCarts ? storedCarts : [];
+let carts = storedCarts ? storedCarts : [];
 
 // Products Container
 let productsContainer = document.getElementsByClassName("products-container")[0];
 
 showCarts();
 
-function showCarts(){
+function showCarts() {
 
     productsContainer.innerHTML = "";
 
-    initialProducts.map(function(cartItem, i){
+    initialProducts.map(function(cartItem, i) {
 
         let product_div = document.createElement('div');
         product_div.className = "product-div";
@@ -121,18 +123,16 @@ function showCarts(){
 
         addedCart(cartItem, i);
     });
-    
+
 }
 
 
 // When Add Button Pressed, create array of objects and save it on local storage
 
-function addedCart(cartItem, i)
-{
-    document.getElementsByClassName("add-btn")[i].addEventListener('click', function(){
+function addedCart(cartItem, i) {
+    document.getElementsByClassName("add-btn")[i].addEventListener('click', function() {
         // check if cart already added
-        if(!(carts.includes(cartItem)))
-        {
+        if (!(carts.includes(cartItem))) {
             carts.push(cartItem);
         }
 
