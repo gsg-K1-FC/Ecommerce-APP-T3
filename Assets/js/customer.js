@@ -1,9 +1,26 @@
 let storedCarts = JSON.parse(localStorage.getItem("carts"));
 let storedProduct = JSON.parse(localStorage.getItem("storeProducts"));
 
-let initialProducts = storedProduct ? storedProduct : [];
 
-let carts = storedCarts ? storedCarts : [];
+let initialProducts = [{
+    id: 0,
+    productName: "t-shirt",
+    productDetails: "white t-shirt",
+    productPrice: 13.5,
+    productImg: "/Assets/images/t-shirt.png",
+    productCategory: "clothes"
+},
+{
+    id: 1,
+    productName: "iphone-x",
+    productDetails: "gray",
+    productPrice: 2000,
+    productImg: "/Assets/images/iphone x.png",
+    productCategory: "phones"
+}];
+localStorage.setItem("storeProducts", JSON.stringify(initialProducts));
+
+ let carts = storedCarts ? storedCarts : [];
 
 // Products Container
 let productsContainer = document.getElementsByClassName("products-container")[0];
@@ -14,11 +31,13 @@ function showCarts() {
 
     productsContainer.innerHTML = "";
 
-    initialProducts.map(function(cartItem, i) {
+    storedProduct.map(function(cartItem, i) {
 
         let product_div = document.createElement('div');
+        product_div.className = "product-div";
         let product_category = cartItem.productCategory;
-        product_div.className = "product-div " + product_category;
+        let product_name = cartItem.productName;
+        product_div.className = "product-div " + product_category + " " + product_name;
         productsContainer.appendChild(product_div);
 
 
@@ -122,6 +141,7 @@ function addedCart(cartItem, i) {
         localStorage.setItem("carts", JSON.stringify(carts));
     });
 }
+
 
 
 
@@ -232,4 +252,69 @@ document.getElementsByClassName("filter--div")[0].addEventListener('click', func
         initialProducts.sort(compare);
         showCarts();
     }
+}); 
+
+
+// Search bar
+// Name Array
+let nameArray = [];
+initialProducts.map(function(cartItem,i){
+    if(!(nameArray.includes(cartItem.productName))){
+        nameArray.push(cartItem.productName);
+    }
 });
+
+// create li and a elements
+for(let i=0; i<nameArray.length; i++){
+    let li = document.createElement('li');
+    document.getElementById("suggestions-list").appendChild(li);
+    let a = document.createElement('a');
+    a.className = "a-search";
+    a.innerText = nameArray[i];
+    li.appendChild(a);
+
+    // Select search items
+    document.getElementsByClassName("a-search")[i].addEventListener('click', function(){
+        showCarts();
+        for(let j=0; j<initialProducts.length; j++){
+            if(initialProducts[j].productName != nameArray[i]){
+                let className = "."+initialProducts[j].productName;
+                document.querySelectorAll(className).forEach(function(a){
+                    a.remove();
+                });
+            }
+        }
+        
+    });
+}
+// Search Suggestions
+document.getElementById("search-input").addEventListener("input", function(){
+    // Show Options
+    document.getElementById("suggestions-list").style.display = "block";
+    // If Input Empty hide options
+    if(document.getElementById("search-input").value == ""){
+        document.getElementById("suggestions-list").style.display = "none";
+    }
+
+    let input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("search-input");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("suggestions-list");
+    li = ul.getElementsByTagName("li");
+    for (let i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+
+    // When x icon clicked close suggestions
+    document.getElementsByClassName("fa--times")[0].addEventListener('click', function(){
+        document.getElementById("suggestions-list").style.display = "none";
+        document.getElementById("search-input").value = "";
+    });
+});
+ 

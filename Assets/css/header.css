@@ -102,6 +102,11 @@ header {
     color: #060930;
     min-width: 30px;
     font-size: 20px;
+    cursor: pointer;
+}
+
+.fa--search:hover{
+    color: #595b83;
 }
 
 
@@ -135,10 +140,14 @@ header {
     font-size: 17px;
 }
 
-.fa--times {
-    padding-right: 5px;
+.fa--times{
     color: #060930;
-    min-width: 30px;
+    padding-right: 12px;
+    cursor: pointer;
+}
+
+.fa--times:hover{
+    color: #595b83;
 }
 
 
@@ -224,4 +233,36 @@ header {
 
 .fa--cart {
     color: #060930;
+}
+
+
+/* search */
+#suggestions-list {
+    display: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 40px;
+    margin-left: -20px;
+    position: absolute;
+    width: 240px;
+    border-radius: 9px;
+    border-style: solid;
+    border-color:  #ddd;
+    border-width: 2px;
+}
+
+#suggestions-list li a {
+    margin-top: -1px; /* Prevent double borders */
+    background-color: rgb(230, 236, 240);
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #060930;
+    display: block
+}
+
+#suggestions-list li a:hover {
+    background-color: #eee;
+    cursor: pointer;
 }
