@@ -26,6 +26,9 @@ main{
 .main-container{
     width: 100v;
     padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Filter & Display Container */

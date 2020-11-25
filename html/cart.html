@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../Assets/css/cart.css">
-  <link rel="stylesheet" href="../Assets/css/products.css">
-  <link rel="stylesheet" href="../Assets/css/header.css">
+  <link rel="stylesheet" href="/Assets/css/cart.css">
+  <link rel="stylesheet" href="/Assets/css/products.css">
+  <link rel="stylesheet" href="/Assets/css/header.css">
+  <link rel="stylesheet" href="/Assets/css/customer.css">
   <script src="https://use.fontawesome.com/23bea62652.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Overpass&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-
+  <link rel="icon" href="../Assets/images/e-app.png">
   <title>Cart</title>
 </head>
 <body>
@@ -38,7 +39,14 @@
                     </div>
                     <!-- Search Content -->
                     <div class="search-content-div">
-                      <input type="text" class="search-content-input" name="#" id="#" placeholder="Search E-commerce App">
+                      <input 
+                          type="text" 
+                          class="search-content-input" 
+                          id="search-input" 
+                          placeholder="Search E-commerce App"
+                          title="Type in a product name">
+                          <ul id="suggestions-list">
+                          </ul>     
                     </div>
                     <!-- Times Icon -->
                     <div class="search-times-icon">
@@ -73,22 +81,31 @@
       </div>
     </header>
 
+    <main>
+      <div class="main-container">
+        <!-- Products Container -->
+        <div class="products-container">                
+        </div>
+
+        <div id="totalPrice"> 
+        </div>
+      </div>
+    </main>
+
     
   </div>
 
          
-       <div class="container">
-    
-  <div class="allProducts"> 
-  </div>
+  <!-- <div class="container">
+    <div class="allProducts"> 
+  </div> -->
 
  
 </div>
-<div id="totalPrice">
-    
-</div>
+<!-- <div id="totalPrice"> 
+</div> -->
   
 
-<script src="../Assets/js/cart.js"></script>
+<script src="/Assets/js/cart.js"></script>
 </body>
 </html>
