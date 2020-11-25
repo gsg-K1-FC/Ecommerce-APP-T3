@@ -288,7 +288,7 @@ for(let i=0; i<nameArray.length; i++){
     });
 }
 // Search Suggestions
-document.getElementById("search-input").addEventListener("keyup", function(){
+document.getElementById("search-input").addEventListener("input", function(){
     // Show Options
     document.getElementById("suggestions-list").style.display = "block";
     // If Input Empty hide options
