@@ -31,7 +31,8 @@ function showCarts(){
     initialProducts.map(function(cartItem, i){
 
         let product_div = document.createElement('div');
-        product_div.className = "product-div";
+        let product_category = cartItem.productCategory;
+        product_div.className = "product-div " + product_category;
         productsContainer.appendChild(product_div);
 
 
@@ -157,13 +158,63 @@ for(let i=0; i<3; i++){
                 document.getElementsByClassName("fa--list")[j].setAttribute("style", "color: #060930;");
             }
         }
+        // Filter by category
+        if(i == 0){
+            let dropdown_content = document.getElementById("myDropdown");
+            dropdown_content.innerHTML = "";
+            // Show dropdown
+            document.getElementById("myDropdown").classList.toggle("show");
+
+            // First dropdown element: All Categories
+            let dropdown_a_all = document.createElement('a');
+            dropdown_a_all.className = "dropdown-a";
+            dropdown_a_all.innerText = "All";
+            dropdown_content.appendChild(dropdown_a_all);
+
+            // Category Array
+            let categories = [];
+            for(let k=0; k<initialProducts.length; k++)
+            {
+                if(!(categories.includes(initialProducts[k].productCategory))){
+                    categories.push(initialProducts[k].productCategory);
+                }
+            }
+
+            // Dropdown Content: get Other Categories from category array
+            for(let k=0; k<categories.length; k++){
+                let dropdown_a = document.createElement('a');
+                dropdown_a.className = "dropdown-a";
+                dropdown_a.innerText = categories[k];
+                dropdown_content.appendChild(dropdown_a);
+            }
+
+            // Select Specific Category
+            for(let k=0; k<=categories.length; k++){
+                document.getElementsByClassName("dropdown-a")[k].addEventListener('click', function(){
+                    // All Categories
+                    if(k === 0){
+                        showCarts();
+                    }else{ //Other categories
+                        showCarts();
+                        for(let j=0; j<initialProducts.length; j++){
+                            if(initialProducts[j].productCategory != categories[k-1]){
+                                let classCategory = "."+initialProducts[j].productCategory;
+                                console.log(classCategory);
+                                document.querySelectorAll(classCategory).forEach(function(a){
+                                    a.remove();
+                                });
+                            }
+                        }
+                    }
+                });
+            }
+        }
         // Display list
         if(i == 1){
             document.getElementsByClassName("products-container")[0].setAttribute("style", "flex-direction: column;");
         } // Display grid
         else if(i == 2){
             productsContainer.style.removeProperty('flex-direction');
-            showCarts();
         }
     });
 }
@@ -198,4 +249,4 @@ document.getElementsByClassName("filter--div")[0].addEventListener('click', func
         initialProducts.sort(compare);
         showCarts();
     }
-});
+}); 
