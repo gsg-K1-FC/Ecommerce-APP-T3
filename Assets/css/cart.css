@@ -71,7 +71,7 @@ padding-top: 10px;
 text-align: center;
 }
 
-.totalPrice{
+#totalPrice{
 display: flex;
 position: absolute;
 width: 10%;

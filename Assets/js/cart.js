@@ -16,6 +16,8 @@ showCarts();
 
 function showCarts() {
     allProducts.innerHTML = "";
+    totalprice.textContent = "Total price : " + 0;
+
     carts.forEach((cartItem , i)=> {
 
         //creat a dive for every item
@@ -59,17 +61,15 @@ function showCarts() {
    productCategory.className = "productCategory";
    productDiv.appendChild(productCategory);
 
-console.log(carts) ;  
   total = carts.reduce(function(accumulator, currentValue) {
-    console.log(accumulator+ " acc");
+ 
        return accumulator + currentValue.productPrice;
    
      },0)
      
-     console.log(total + "total");
+
      totalprice.textContent = "Total price : " + total;
-//    let totalPrice = 0;
-//         totalPrice += cartItem.productPrice;
+
 
         allProducts.appendChild(productDiv);
 
@@ -95,11 +95,6 @@ console.log(carts) ;
 }
 
 container.appendChild(allProducts);
-//store the total price in a span and give a class name 
-// let total = document.createElement("div");
-// total.textContent ="Total Price :" + totalPrice;
-// total.className = "totalPrice";
-// container.appendChild(total);
 
 
 
