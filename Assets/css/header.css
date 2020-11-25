@@ -225,18 +225,7 @@ header{
 
 
 /* search */
-/* #search-input {
-    background-image: url('/css/searchicon.png');
-    background-position: 10px 12px;
-    background-repeat: no-repeat;
-    width: 100%;
-    font-size: 16px;
-    padding: 12px 20px 12px 40px;
-    border: 1px solid #ddd;
-    margin-bottom: 12px;
-  } */
-  
-  #myUL {
+#myUL {
     display: none;
     list-style-type: none;
     padding: 0;
@@ -249,9 +238,9 @@ header{
     border-style: solid;
     border-color:  #ddd;
     border-width: 2px;
-  }
-  
-  #myUL li a {
+}
+
+#myUL li a {
     margin-top: -1px; /* Prevent double borders */
     background-color: rgb(230, 236, 240);
     padding: 12px;
@@ -259,9 +248,9 @@ header{
     font-size: 18px;
     color: #060930;
     display: block
-  }
-  
-  #myUL li a:hover {
+}
+
+#myUL li a:hover {
     background-color: #eee;
     cursor: pointer;
-  }
+}

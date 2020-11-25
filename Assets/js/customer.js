@@ -306,7 +306,6 @@ document.getElementById("search-input").addEventListener("keyup", function(){
             for(let j=0; j<initialProducts.length; j++){
                 if(initialProducts[j].productName != nameArray[k]){
                     let className = "."+initialProducts[j].productName;
-                    console.log(className);
                     document.querySelectorAll(className).forEach(function(a){
                         a.remove();
                     });
