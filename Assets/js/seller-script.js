@@ -1,3 +1,21 @@
+let initialProducts = [{
+    id: 0,
+    productName: "t-shirt",
+    productDetails: "white t-shirt",
+    productPrice: 13.5,
+    productImg: "./../Assets/images/t-shirt.png",
+    productCategory: "clothes"
+},
+{
+    id: 1,
+    productName: "iphone-x",
+    productDetails: "gray",
+    productPrice: 2000,
+    productImg: "./../Assets/images/iphone x.png",
+    productCategory: "phones"
+}];
+
+
 let name = document.getElementById("input-name");
 let detail = document.getElementById("input-detail");
 let price = document.getElementById("input-price");
@@ -10,7 +28,7 @@ let addProducts = document.getElementById("add");
 let submitForm = document.querySelector(".seller-form");
 let popUpForm = document.querySelector('.drop-down-form');
 let addStatement = document.querySelector(".addStatement");
-let products = storedProduct ? storedProduct : [];
+let products = storedProduct ? storedProduct : initialProducts;
 let productForm = {};
 let openForm = false;
 let openEditProduct = false;
