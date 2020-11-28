@@ -317,4 +317,3 @@ document.getElementById("search-input").addEventListener("input", function(){
         document.getElementById("search-input").value = "";
     });
 });
- 

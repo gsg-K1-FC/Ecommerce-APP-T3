@@ -49,6 +49,7 @@ header {
 /* App Name */
 
 .header-div-name {
+    text-decoration: none;
     display: flex;
     justify-content: center;
     height: 100%;
@@ -57,7 +58,6 @@ header {
 }
 
 .header-h2-name {
-    font-weight: 1000;
     font-size: 22px;
     color: #060930;
     max-width: 100%;
