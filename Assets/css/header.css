@@ -172,7 +172,7 @@ header {
     border-width: 1px;
     border-color: #595b83;
     border-style: solid;
-    border-radius: 5px;
+    border-radius: 999px;
     height: 35px;
     display: flex;
     text-decoration: none;
