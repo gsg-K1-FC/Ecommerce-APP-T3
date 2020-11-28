@@ -7,7 +7,7 @@ let initialProducts = [{
     productName: "t-shirt",
     productDetails: "white t-shirt",
     productPrice: 13.5,
-    productImg: "./Assets/images/t-shirt.png",
+    productImg: "./../Assets/images/t-shirt.png",
     productCategory: "clothes"
 },
 {
@@ -15,11 +15,10 @@ let initialProducts = [{
     productName: "iphone-x",
     productDetails: "gray",
     productPrice: 2000,
-    productImg: "./Assets/images/iphone x.png",
+    productImg: "./../Assets/images/iphone x.png",
     productCategory: "phones"
 }];
-localStorage.setItem("storeProducts", JSON.stringify(initialProducts));
-
+storedProduct = storedProduct ? storedProduct : initialProducts;
  let carts = storedCarts ? storedCarts : [];
 
 // Products Container
@@ -135,6 +134,7 @@ function addedCart(cartItem, i) {
         // check if cart already added
         if (!(carts.includes(cartItem))) {
             carts.push(cartItem);
+            // storedCarts.push(cartItem);
         }
 
         // local Storage
