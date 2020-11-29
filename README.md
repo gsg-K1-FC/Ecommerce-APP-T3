@@ -26,7 +26,7 @@
  **Go Live**
  
 ## GitHub pages
-//Link of our project
+[Ecommerce T3](https://gsg-k1-fc.github.io/Ecommerce-APP-T3/)
 
 ## User Story
 
