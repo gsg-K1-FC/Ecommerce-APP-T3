@@ -73,9 +73,8 @@ body {
   align-items: center;
   height: 550px;
   margin-top: 100px;
-  /* margin-bottom: 100px; */
   padding: 20px;
-  background-color: rgb(253, 157, 195, 0.1);
+  background-color: rgb(253, 157, 195, 0.2);
 }
 
 .customer,.seller{
@@ -102,7 +101,6 @@ body {
 
 .customer-btn,.seller-btn{
   font-family: Quicksand;
-  /* font-style: italic; */
   font-weight: bold;
   font-size: 40px;
   border-radius: 10px;
@@ -125,10 +123,132 @@ a{
 
 .footer {
   color: #060930;
-  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   text-align: center;
   background-color: #bbbbbb;
+}
+
+
+/* Section3: About The Team */
+.container2{
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+.row{
+  display: flex;
+}
+
+
+
+.col-about{
+  /* position: relative; */
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  align-self: center;
+}
+
+.team-member{
+  display: inline-block;
+  width: 200px;
+  margin-bottom: 56px;
+}
+
+.img-fluid{
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.about{
+  color: #060930;
+  padding-top: 112px;
+  padding-bottom: 64px;
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 100px;
+}
+
+.about h2{
+  margin-bottom: 16px;
+}
+
+.p-about{
+  margin-bottom: 62px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #060930;
+  width: 55%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.img-wrapper{
+  margin-bottom: 24px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.img-fluid2:hover{
+  transform: scale(1.2);
+  transition: all 1s;
+}
+
+.p-team{
+  color: #060930;
+  margin-bottom: 4px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+
+
+.job-title{
+  color: #060930;
+  margin-bottom: 6px;
+}
+
+.fa-stack{
+  margin-top: 6px;
+  margin-right: 2px;
+  margin-left: 2px;
+  font-size: 14px;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.fa-stack-2x{
+  color: #595b83;
+  font-size: 30px;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+
+
+/* CopyRight */
+.copyright{
+  padding-top: 16px;
+  padding-bottom: 6px;
+  text-align: center;
+}
+
+.col-copyright{
+  position: relative;
+  width: 100%;
+}
+
+.p-copyright{
+  padding-top: 17px;
+  padding-bottom: 17px;
+  opacity: 0.7;
+  border-top: 1px solid #c4d8dc;
 }
