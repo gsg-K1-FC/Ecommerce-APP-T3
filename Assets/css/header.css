@@ -266,3 +266,51 @@ header {
     background-color: #eee;
     cursor: pointer;
 }
+
+
+/* Media Queries */
+@media(max-width: 850px){
+    .header-btns-div{
+        justify-content: flex-end;
+    }
+
+    .header-div-search{
+        width: auto;
+    }
+
+    .btn1-customer{
+        display: none;
+    }
+
+    .header-btns-div{
+        width: auto;
+    }
+}
+
+@media(max-width: 680px){
+    .header--div{
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+
+    .header---div{
+        height: auto;
+        display: inline-block;
+        flex-direction: column;
+        text-align: center;
+    }    
+
+    .header-div-search{
+        display: inline-block;
+    }
+
+    .header-btns-div{
+        display: inline-block;
+    }
+
+    .header-div-cart{
+        display: inline-block;
+    }
+}

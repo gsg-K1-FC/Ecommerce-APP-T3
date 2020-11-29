@@ -214,10 +214,12 @@ for (let i = 0; i < 3; i++) {
         }
         // Display list
         if (i == 1) {
-            document.getElementsByClassName("products-container")[0].setAttribute("style", "flex-direction: column;");
+            document.getElementsByClassName("products-container")[0].style.display = "flex";
+            document.getElementsByClassName("products-container")[0].style.flexDirection = "column";
+            document.getElementsByClassName("products-container")[0].style.alignItems = "center";
         } // Display grid
         else if (i == 2) {
-            productsContainer.style.removeProperty('flex-direction');
+            productsContainer.style.display = "inline-block";
         }
     });
 }
@@ -284,7 +286,6 @@ for(let i=0; i<nameArray.length; i++){
                 });
             }
         }
-        
     });
 }
 // Search Suggestions
@@ -315,5 +316,5 @@ document.getElementById("search-input").addEventListener("input", function(){
     document.getElementsByClassName("fa--times")[0].addEventListener('click', function(){
         document.getElementById("suggestions-list").style.display = "none";
         document.getElementById("search-input").value = "";
-    });
+    });    
 });

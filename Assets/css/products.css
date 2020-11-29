@@ -25,9 +25,8 @@ body {
     padding-bottom: 10px;
     padding-right: 10px;
     padding-left: 10px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    text-align: center;
+    display: inline-block;
 }
 
 .product-div {
@@ -40,6 +39,7 @@ body {
     border-width: 2px;
     border-color: #595b83;
     border-radius: 9px;
+    display: inline-block;
 }
 
 .product--div {
