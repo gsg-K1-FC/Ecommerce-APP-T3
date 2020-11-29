@@ -1,4 +1,4 @@
-# Ecommerce T3
+# [Ecommerce T3](https://gsg-k1-fc.github.io/Ecommerce-APP-T3/)
 
 ## Why, What 
 ### why 
@@ -24,9 +24,6 @@
  
 2. in VS code :
  **Go Live**
- 
-## GitHub pages
-[Ecommerce T3](https://gsg-k1-fc.github.io/Ecommerce-APP-T3/)
 
 ## User Story
 
