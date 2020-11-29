@@ -11,9 +11,10 @@ body {
 .container{
   display: flex;
   justify-content: space-around;
+  align-items: center;
   max-width: 100%;
   width: 100%;
-  height: 550px;
+  height: auto;
 }
 
 .p-div{
@@ -44,8 +45,12 @@ body {
 }
 
 .btn-div-landing{
-  width: 300px;
-  height: 50px;
+  width: 80%;
+  height: 20%;
+}
+
+.btn-div--landing{
+  width: 50%;
 }
 
 .btn-a-landing{
@@ -54,8 +59,11 @@ body {
   border-width: 2px;
 }
 
+.btn-a--landing{
+  padding: 15px;
+}
+
 .landing-img{
-  padding-right: 30px;
   display: flex;
   align-items: center;
 }
@@ -148,11 +156,14 @@ a{
 
 
 .col-about{
-  /* position: relative; */
   width: 100%;
   padding-left: 15px;
   padding-right: 15px;
   align-self: center;
+}
+
+.col-about h2{
+  font-size: 35px;
 }
 
 .team-member{
@@ -183,7 +194,7 @@ a{
 .p-about{
   margin-bottom: 62px;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 24px;
   color: #060930;
   width: 55%;
@@ -251,4 +262,48 @@ a{
   padding-bottom: 17px;
   opacity: 0.7;
   border-top: 1px solid #c4d8dc;
+}
+
+
+
+/* Media Queries */
+@media(max-width: 1000px){
+  .header---div{
+    justify-content: space-around;
+  }
+
+  .header-btns-div{
+    justify-content: flex-end;
+  }
+
+  .container{
+    flex-direction: column;
+  }
+  
+  .p-div{
+    width: 65%;
+    padding-left: 0px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+  }
+
+  .landing-img{
+    width: 70%;
+  }
+
+  .option{
+    flex-direction: column;
+  }
+
+  .customer{
+    margin-bottom: 20px;
+  }
+
+  .customer, .seller{
+    width: 50%;
+  }
+  
+  .btn-div--landing{
+    width: 70%;
+  }
 }
